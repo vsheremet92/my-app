@@ -1,6 +1,6 @@
 import { List } from '../components/List'
 import { connect } from 'react-redux'
-import { removeItem } from '../actions/index'
+import { toggleItem } from '../actions/index'
 
 const getItems = (items, fltr)=> {
   switch(fltr) {
@@ -22,7 +22,7 @@ const mapStateToProps = (state)=> {
 }
 
 const mapDispatchToProps = {
-    onItemClick: removeItem
+    onItemClick: toggleItem
 }
 
 const ItemsList = connect(

@@ -8,6 +8,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <br />
+        Items List
         <AddItem />
         <Filter />
         <ItemsList />

@@ -7,13 +7,16 @@ export const items = (state = [], action)=> {
             {
               _id: action._id,
               title: action.title,
+              createdAt: action.createdAt,
               removed: false
             }
           ]
-        case 'REMOVE_ITEM':
+        case 'TOGGLE_ITEM':
           return state.map(item=>
             item._id === action._id ?
-            {...item, removed: true} :
+              !item.removed ?
+              {...item, removed: true} :
+              {...item, removed: false} :
             item
           )
         default:

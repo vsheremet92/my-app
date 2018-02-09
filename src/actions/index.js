@@ -1,17 +1,19 @@
 const ADD_ITEM = 'ADD_ITEM';
-const REMOVE_ITEM = 'REMOVE_ITEM';
+const TOGGLE_ITEM = 'TOGGLE_ITEM';
 const SET_FILTER = 'SET_FILTER';
 
-let next_id = 0;
+let nextId = 0;
+let creationDate = new Date();
 
 export const addNewItem = (title)=> ({
     type: ADD_ITEM,
-    _id: next_id++,
+    _id: nextId++,
+    createdAt: creationDate,
     title
 })
 
-export const removeItem = (_id)=> ({
-    type: REMOVE_ITEM,
+export const toggleItem = (_id)=> ({
+    type: TOGGLE_ITEM,
     _id
 })
 

@@ -12,8 +12,8 @@ class Add extends React.Component {
     render() {
       return(
         <div>
-            <br /><br />
-            <input type="text" value={this.state.value} onChange={(e)=> {
+            <br />
+            <input placeholder="Enter a title of new item" type="text" value={this.state.value} onChange={(e)=> {
                 this.setState({ value: e.target.value });
               }}
             />

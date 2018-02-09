@@ -1,7 +1,7 @@
 import React from 'react'
 
-export const Item = ({title, onItemClick})=> {
+export const Item = ({children, isActive, onItemClick})=> {
   return (
-    <li onClick={onItemClick}>{title}</li>
+    <li className={isActive ? 'active' : 'removed'} onClick={onItemClick}>{children}</li>
   )
 }
