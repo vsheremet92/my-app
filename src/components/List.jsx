@@ -2,15 +2,15 @@ import React from 'react'
 import { Item } from './Item'
 import * as moment from 'moment'
 
-export const List = ({items, onItemClick})=> {
+export const List = ({items, toggleItem, onItemUpdate})=> {
   return(
     <ul className="items-list">
       {
         items.length ?
         items.map((item)=> {
           return (
-            <Item key={item._id} isActive={!item.removed} onItemClick={()=> onItemClick(item._id)}>
-              <span>{`${item.title}, time:${moment(item.createdAt).format('lll')}, id:${item._id}`}</span>
+            <Item key={item._id} id={item._id} isActive={!item.removed} title={item.title} toggleItem={toggleItem} onItemUpdate={onItemUpdate}>
+              <span>{`${item.title}`}</span>
             </Item>
           )
         }) :
@@ -18,3 +18,6 @@ export const List = ({items, onItemClick})=> {
       }
     </ul>
 )}
+/*
+<input type="text" readOnly value={item.title}/>
+*/

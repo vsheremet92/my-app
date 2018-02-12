@@ -19,6 +19,12 @@ export const items = (state = [], action)=> {
               {...item, removed: false} :
             item
           )
+        case 'UPDATE_ITEM':
+          return state.map(item=>
+            item._id === action._id && item.title !== action.title ?
+            {...item, title: action.title} :
+            item
+          )
         default:
           return state
     }

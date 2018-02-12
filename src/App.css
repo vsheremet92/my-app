@@ -16,6 +16,29 @@ ul {
   cursor: pointer;
 }
 
+.item-btn {
+  float: right;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.item-toggle {
+  float: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.item-btn-hide {
+  display: none;
+}
+
+.item-edit {
+  background: none;
+  border: none;
+}
+
 .items-list .active {
   background-color: #e8f5e9;
 }

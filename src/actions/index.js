@@ -1,5 +1,6 @@
 const ADD_ITEM = 'ADD_ITEM';
 const TOGGLE_ITEM = 'TOGGLE_ITEM';
+const UPDATE_ITEM = 'UPDATE_ITEM';
 const SET_FILTER = 'SET_FILTER';
 
 let nextId = 0;
@@ -15,6 +16,12 @@ export const addNewItem = (title)=> ({
 export const toggleItem = (_id)=> ({
     type: TOGGLE_ITEM,
     _id
+})
+
+export const updateItem = (_id, newTitle)=> ({
+    type: UPDATE_ITEM,
+    _id,
+    title: newTitle
 })
 
 export const setFilter = (filter)=> ({

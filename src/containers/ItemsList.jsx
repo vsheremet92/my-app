@@ -1,6 +1,6 @@
 import { List } from '../components/List'
 import { connect } from 'react-redux'
-import { toggleItem } from '../actions/index'
+import { toggleItem, updateItem } from '../actions/index'
 
 const getItems = (items, fltr)=> {
   switch(fltr) {
@@ -22,7 +22,8 @@ const mapStateToProps = (state)=> {
 }
 
 const mapDispatchToProps = {
-    onItemClick: toggleItem
+    toggleItem: toggleItem,
+    onItemUpdate: updateItem
 }
 
 const ItemsList = connect(
