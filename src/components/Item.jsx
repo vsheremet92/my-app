@@ -11,7 +11,7 @@ export class Item extends React.Component {
     editing: false
   }
 
-  save(ev) {
+  updateItem(ev) {
     console.log('save', this.props.onItemUpdate);
     this.props.onItemUpdate(this.props.id, ev.target.value);
   }
@@ -23,28 +23,27 @@ export class Item extends React.Component {
 
     return (
       <li className={isActive ? 'active' : 'removed'}>
-          <button className="item-toggle" onClick={()=> toggleItem(id)}>X</button>
+          <button className={classnames('item-btn', {'item-btn-hide': editing})} onClick={(e)=> {
+              this.setState({editing: true});
+          }}>
+            ✎
+          </button>
+          <button className={classnames('item-btn', {'item-btn-hide': !editing})} onClick={(e)=> {
+              this.setState({editing: false});
+          }}>
+            ✕  
+          </button>
           {
             !editing ?
             <span>{title}</span> :
             <input onKeyUp={(e)=> {
                 if(e.keyCode === 13) {
-                  this.save(e);
+                  this.updateItem(e);
                   this.setState({editing: false});
                 }
               }} className="item-edit" autoFocus type="text" defaultValue={title} />
           }
-
-          <button className={classnames('item-btn', {'item-btn-hide': editing})} onClick={(e)=> {
-              this.setState({editing: true});
-          }}>
-            edit
-          </button>
-          <button className={classnames('item-btn', {'item-btn-hide': !editing})} onClick={(e)=> {
-              this.setState({editing: false});
-          }}>
-              x
-          </button>
+          <button className="item-toggle" onClick={()=> toggleItem(id)}>⟳</button>
       </li>
     )
 

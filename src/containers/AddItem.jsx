@@ -19,9 +19,8 @@ class Add extends React.Component {
             />
             <br /><br />
             <button onClick={()=> {
-              this.state.value && this.props.dispatch(addNewItem(this.state.value));
+              this.state.value.trim() && this.props.dispatch(addNewItem(this.state.value));
               this.setState({value: ''});
-              console.log(store.getState());
             }}>
               Add Item
             </button>

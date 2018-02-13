@@ -2,6 +2,7 @@ const ADD_ITEM = 'ADD_ITEM';
 const TOGGLE_ITEM = 'TOGGLE_ITEM';
 const UPDATE_ITEM = 'UPDATE_ITEM';
 const SET_FILTER = 'SET_FILTER';
+const FILTER_BY_TITLE = 'FILTER_BY_TITLE';
 
 let nextId = 0;
 let creationDate = new Date();
@@ -27,4 +28,9 @@ export const updateItem = (_id, newTitle)=> ({
 export const setFilter = (filter)=> ({
     type: SET_FILTER,
     filter
+})
+
+export const filterByTitle = (filterString)=> ({
+    type: FILTER_BY_TITLE,
+    filterString
 })
