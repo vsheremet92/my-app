@@ -2,14 +2,24 @@ import { List } from '../components/List'
 import { connect } from 'react-redux'
 import { toggleItem, updateItem } from '../actions/index'
 
-const getItems = (items, fltr)=> {
+const getItems = (items, fltr, fltrByTitle)=> {
   switch(fltr) {
     case 'SHOW_ALL':
-      return items;
+      if(fltrByTitle) {
+        return items.filter(i=> i.title === fltrByTitle);
+      } else return items;
     case 'SHOW_ACTIVE':
-      return items.filter(i=> !i.removed);
+      return items.filter((i)=> {
+        if(fltrByTitle) {
+          return !i.removed && i.title === fltrByTitle
+        } else return !i.removed
+      });
     case 'SHOW_REMOVED':
-      return items.filter(i=> i.removed);
+      return items.filter((i)=> {
+        if(fltrByTitle) {
+          return i.removed && i.title === fltrByTitle
+        } else return i.removed
+      });
     default:
       return items;
   }
@@ -17,7 +27,7 @@ const getItems = (items, fltr)=> {
 
 const mapStateToProps = (state)=> {
   return {
-    items: getItems(state.items, state.fltr)
+    items: getItems(state.items, state.fltr, state.fltrByTitle)
   }
 }
 

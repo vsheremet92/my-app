@@ -1,7 +1,6 @@
 import React from 'react'
 import { addNewItem } from '../actions/index'
 import { connect } from 'react-redux'
-import { store } from '../index'
 
 class Add extends React.Component {
 
@@ -11,20 +10,19 @@ class Add extends React.Component {
 
     render() {
       return(
-        <div>
+        <form className="add-item" onSubmit={(e)=> {
+            e.preventDefault();
+            this.state.value.trim() && this.props.dispatch(addNewItem(this.state.value));
+            this.setState({value: ''});
+          }}>
             <br />
-            <input placeholder="Enter a title of new item" type="text" value={this.state.value} onChange={(e)=> {
+            <input placeholder="Enter a title, hit ENTER" type="text" value={this.state.value} onChange={(e)=> {
                 this.setState({ value: e.target.value });
               }}
             />
             <br /><br />
-            <button onClick={()=> {
-              this.state.value.trim() && this.props.dispatch(addNewItem(this.state.value));
-              this.setState({value: ''});
-            }}>
-              Add Item
-            </button>
-        </div>
+            <button>Add Item</button>
+        </form>
       )
     }
 }

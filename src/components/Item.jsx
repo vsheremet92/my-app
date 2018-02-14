@@ -12,7 +12,6 @@ export class Item extends React.Component {
   }
 
   updateItem(ev) {
-    console.log('save', this.props.onItemUpdate);
     this.props.onItemUpdate(this.props.id, ev.target.value);
   }
 
@@ -22,26 +21,26 @@ export class Item extends React.Component {
     const { editing } = this.state;
 
     return (
-      <li className={isActive ? 'active' : 'removed'}>
-          <button className={classnames('item-btn', {'item-btn-hide': editing})} onClick={(e)=> {
+      <li className={classnames('item', isActive ? 'active' : 'removed')}>
+          <button className={classnames('item-edit', {'item-btn-hide': editing})} onClick={(e)=> {
               this.setState({editing: true});
           }}>
             ✎
           </button>
-          <button className={classnames('item-btn', {'item-btn-hide': !editing})} onClick={(e)=> {
+          <button className={classnames('item-edit', {'item-btn-hide': !editing})} onClick={(e)=> {
               this.setState({editing: false});
           }}>
-            ✕  
+            ✕
           </button>
           {
             !editing ?
-            <span>{title}</span> :
-            <input onKeyUp={(e)=> {
-                if(e.keyCode === 13) {
-                  this.updateItem(e);
+            <span className="item-title">{title}</span> :
+            <input onKeyUp={(ev)=> {
+                if(ev.keyCode === 13) {
+                  this.updateItem(ev);
                   this.setState({editing: false});
                 }
-              }} className="item-edit" autoFocus type="text" defaultValue={title} />
+              }} className="item-editing" autoFocus type="text" defaultValue={title} />
           }
           <button className="item-toggle" onClick={()=> toggleItem(id)}>⟳</button>
       </li>
