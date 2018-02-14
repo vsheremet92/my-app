@@ -15,10 +15,20 @@ button {
   padding: 6px;
 }
 
+.items-container {
+  margin-top: 25px;
+}
+
+.items-list {
+  width: 300px;
+  margin: 0 auto;
+  margin-left: 30px;
+  display: inline-block;
+  vertical-align: top;
+}
+
 .items-list li {
   border: 1px solid black;
-  width: 15%;
-  margin: 0 auto;
   margin-bottom: 10px;
   padding: 5px;
 }

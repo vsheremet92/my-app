@@ -1,6 +1,5 @@
 import React from 'react'
 import { Item } from './Item'
-import * as moment from 'moment'
 
 export const List = ({items, toggleItem, onItemUpdate})=> {
   return(

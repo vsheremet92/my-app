@@ -3,10 +3,6 @@ import classnames from 'classnames'
 
 export class Item extends React.Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   state = {
     editing: false
   }
@@ -17,7 +13,7 @@ export class Item extends React.Component {
 
 
   render () {
-    const { isActive, toggleItem, onItemUpdate, title, id } = this.props;
+    const { isActive, toggleItem, title, id } = this.props;
     const { editing } = this.state;
 
     return (

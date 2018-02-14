@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { filterByTitle } from '../actions/index'
-import { store } from '../index'
 
 class FilterInput extends React.Component {
 
@@ -10,7 +9,6 @@ class FilterInput extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     return(
         <input className="filter-by-title" placeholder="Search by title" type="text" onChange={
             (e)=> {

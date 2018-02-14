@@ -11,8 +11,10 @@ class App extends Component {
         <br />
         Items List
         <AddItem />
-        <Filter />
-        <ItemsList />
+        <div className="items-container">
+          <Filter />
+          <ItemsList />
+        </div>
       </div>
     );
   }
