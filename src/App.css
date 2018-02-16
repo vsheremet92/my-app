@@ -71,7 +71,7 @@ button {
   background-color: #e8f5e9;
 }
 
-.items-list .removed {
+.items-list .inactive {
   background-color: #ffebee;
 }
 

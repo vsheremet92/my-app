@@ -9,7 +9,7 @@ const Filter = ()=> {
           <ul>
             <FilterItemsLink fltr="SHOW_ALL">all</FilterItemsLink>
             <FilterItemsLink fltr="SHOW_ACTIVE">active</FilterItemsLink>
-            <FilterItemsLink fltr="SHOW_REMOVED">removed</FilterItemsLink>
+            <FilterItemsLink fltr="SHOW_INACTIVE">inactive</FilterItemsLink>
           </ul>
       </div>
     )

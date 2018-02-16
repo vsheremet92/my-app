@@ -13,11 +13,16 @@ export class Item extends React.Component {
 
 
   render () {
-    const { isActive, toggleItem, title, id } = this.props;
+    const { isActive, toggleItem, deleteItem, title, id } = this.props;
     const { editing } = this.state;
 
     return (
-      <li className={classnames('item', isActive ? 'active' : 'removed')}>
+      <li className={classnames('item', isActive ? 'active' : 'inactive')}>
+          <button className={classnames('item-edit', {'item-btn-hide': editing})} onClick={()=> {
+              deleteItem(id)
+            }}>
+            ✕
+          </button>
           <button className={classnames('item-edit', {'item-btn-hide': editing})} onClick={(e)=> {
               this.setState({editing: true});
           }}>
@@ -38,7 +43,7 @@ export class Item extends React.Component {
                 }
               }} className="item-editing" autoFocus type="text" defaultValue={title} />
           }
-          <button className="item-toggle" onClick={()=> toggleItem(id)}>⟳</button>
+          <button className={classnames('item-edit', {'item-btn-hide': editing})} onClick={()=> toggleItem(id)}>⟳</button>
       </li>
     )
 

@@ -8,15 +8,15 @@ export const items = (state = [], action)=> {
               _id: action._id,
               title: action.title,
               createdAt: action.createdAt,
-              removed: false
+              active: true
             }
           ]
         case 'TOGGLE_ITEM':
           return state.map(item=>
             item._id === action._id ?
-              !item.removed ?
-              {...item, removed: true} :
-              {...item, removed: false} :
+              item.active ?
+              {...item, active: false} :
+              {...item, active: true} :
             item
           )
         case 'UPDATE_ITEM':
@@ -24,6 +24,10 @@ export const items = (state = [], action)=> {
             item._id === action._id && item.title !== action.title ?
             {...item, title: action.title} :
             item
+          )
+        case 'DELETE_ITEM':
+          return state.filter(item=>
+            item._id !== action._id
           )
         default:
           return state

@@ -1,6 +1,7 @@
 const ADD_ITEM = 'ADD_ITEM';
 const TOGGLE_ITEM = 'TOGGLE_ITEM';
 const UPDATE_ITEM = 'UPDATE_ITEM';
+const DELETE_ITEM = 'DELETE_ITEM';
 const SET_FILTER = 'SET_FILTER';
 const FILTER_BY_TITLE = 'FILTER_BY_TITLE';
 
@@ -23,6 +24,11 @@ export const updateItem = (_id, newTitle)=> ({
     type: UPDATE_ITEM,
     _id,
     title: newTitle
+})
+
+export const deleteItem = (_id)=> ({
+    type: DELETE_ITEM,
+    _id
 })
 
 export const setFilter = (filter)=> ({
