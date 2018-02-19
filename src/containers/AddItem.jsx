@@ -1,6 +1,7 @@
 import React from 'react'
 import { addNewItem } from '../actions/index'
 import { connect } from 'react-redux'
+import { store } from '../index'
 
 class Add extends React.Component {
 
@@ -14,6 +15,7 @@ class Add extends React.Component {
             e.preventDefault();
             this.state.value.trim() && this.props.dispatch(addNewItem(this.state.value));
             this.setState({value: ''});
+            console.log(store.getState());
           }}>
             <br />
             <input placeholder="Enter a title, hit ENTER" type="text" value={this.state.value} onChange={(e)=> {

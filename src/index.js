@@ -11,7 +11,7 @@ import { Router, Route } from 'react-router'
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 
 const sagaMiddleware = createSagaMiddleware();
-const store = createStore(reducer, applyMiddleware(sagaMiddleware));
+export const store = createStore(reducer, applyMiddleware(sagaMiddleware));
 
 sagaMiddleware.run(helloSaga);
 

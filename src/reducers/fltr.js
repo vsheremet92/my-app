@@ -1,4 +1,4 @@
-export const fltr = (state = 'SHOW_ACTIVE', action)=> {
+export const fltr = (state = 'SHOW_ALL', action)=> {
     let { type } = action;
     switch(type) {
       case 'SET_FILTER':

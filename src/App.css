@@ -94,6 +94,14 @@ button {
   text-decoration: underline;
 }
 
+.filter-date {
+  background-color: white;
+  display: block;
+  margin-top: 10px;
+  width: 166px;
+  padding: 6px;
+}
+
 .empty {
   border: none !important;
 }
