@@ -17,13 +17,15 @@ class Add extends React.Component {
             this.setState({value: ''});
             console.log(store.getState());
           }}>
-            <br />
+            Add item
+            <br /><br />
             <input placeholder="Enter a title, hit ENTER" type="text" value={this.state.value} onChange={(e)=> {
                 this.setState({ value: e.target.value });
               }}
             />
             <br /><br />
             <button>Add Item</button>
+            <hr />
         </form>
       )
     }

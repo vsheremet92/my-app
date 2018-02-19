@@ -1,6 +1,10 @@
 import { delay } from 'redux-saga'
+import { call, put, takeEvery } from 'redux-saga/effects'
+
+function testEffect() {
+  console.log('take every fired');
+}
 
 export function* helloSaga() {
-  yield delay(5000);
-  console.log('Hello Sagas!');
+  yield takeEvery('ADD_ITEM', testEffect);
 }

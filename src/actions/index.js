@@ -9,6 +9,7 @@ const DELETE_ITEM = 'DELETE_ITEM';
 const SET_FILTER = 'SET_FILTER';
 const FILTER_BY_TITLE = 'FILTER_BY_TITLE';
 const FILTER_BY_DATE = 'FILTER_BY_DATE';
+const SET_ACTIVE_PAGE = 'SET_ACTIVE_PAGE';
 
 let nextId = 0;
 let currDate = new Date();
@@ -50,4 +51,9 @@ export const filterByTitle = (filterString)=> ({
 export const filterByDate = (filterDate)=> ({
     type: FILTER_BY_DATE,
     filterDate
+})
+
+export const setActivePage = (activePage)=> ({
+    type: SET_ACTIVE_PAGE,
+    activePage
 })

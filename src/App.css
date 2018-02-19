@@ -1,5 +1,9 @@
+body {
+  background-color: #f5f5f5;
+}
+
 .App {
-  text-align: center;
+  padding: 12px;
 }
 
 ul {
@@ -20,21 +24,21 @@ button {
 }
 
 .items-list {
-  width: 300px;
-  margin: 0 auto;
-  margin-left: 30px;
-  display: inline-block;
   vertical-align: top;
-}
-
-.items-list li {
-  border: 1px solid black;
-  margin-bottom: 10px;
-  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
 }
 
 .item {
   text-align: center;
+  margin-right: 8px;
+  height: 90px;
+  display: inline-block;
+  border: 1px solid black;
+  margin-bottom: 10px;
+  padding: 5px;
+  flex: 0 0 230px;
 }
 
 .item-edit {
@@ -81,6 +85,8 @@ button {
 
 .filter-block {
   display: inline-block;
+  float: left;
+  margin-right: 15px;
 }
 
 .filter-block li {
@@ -104,4 +110,18 @@ button {
 
 .empty {
   border: none !important;
+}
+
+.pagination-list {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.pagination-list li {
+  display: inline-block !important;
+  background-color: #ececec;
+  font-size: 24px;
+  padding: 3px;
+  margin: 7px;
+  cursor: pointer;
 }
