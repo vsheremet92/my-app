@@ -27,9 +27,34 @@ const getItems = (items, fltr, fltrByTitle, page)=> {
   }
 }
 
+const getPagItems = (items, fltr, fltrByTitle)=> {
+  switch(fltr) {
+    case 'SHOW_ALL':
+      if(fltrByTitle) {
+        return items.filter(item=> item.title.includes(fltrByTitle))
+      } else return items
+    case 'SHOW_ACTIVE':
+      return items.filter((item)=> {
+        if(fltrByTitle) {
+          return item.active && item.title.includes(fltrByTitle)
+        } else return item.active
+      });
+    case 'SHOW_INACTIVE':
+      return items.filter((item)=> {
+        if(fltrByTitle) {
+          return !item.active && item.title.includes(fltrByTitle)
+        } else return !item.active
+      });
+    default:
+      return items;
+  }
+}
+
 const mapStateToProps = (state)=> {
   return {
-    items: getItems(state.items, state.fltr, state.fltrByTitle, state.activePage)
+    items: getItems(getPagItems(state.items, state.fltr, state.fltrByTitle), state.fltr, state.fltrByTitle, state.activePage),
+    activePage: state.activePage,
+    pagItems: getPagItems(state.items, state.fltr, state.fltrByTitle)
   }
 }
 

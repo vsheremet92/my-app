@@ -35,7 +35,7 @@ button {
   margin-right: 8px;
   height: 100px;
   display: inline-block;
-  border: 1px solid black;
+  border: 1px solid #ececec;
   margin-bottom: 10px;
   padding: 5px;
   flex: 0 0 23%;
@@ -117,11 +117,15 @@ button {
   text-align: center;
 }
 
-.pagination-list li {
+.page {
   display: inline-block !important;
-  background-color: #ececec;
   font-size: 24px;
   padding: 3px;
   margin: 7px;
   cursor: pointer;
+}
+
+.page-active {
+  background-color: #ececec;
+  text-decoration: underline;
 }

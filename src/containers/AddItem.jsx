@@ -1,12 +1,16 @@
 import React from 'react'
 import { addNewItem } from '../actions/index'
 import { connect } from 'react-redux'
-import { store } from '../index'
+import { times } from '../constants/index'
 
 class Add extends React.Component {
 
     state = {
       value: ''
+    }
+
+    createRandomItems = (x)=> {
+      times(x)(()=> this.props.dispatch(addNewItem(String(Math.round(Math.random()*100) + 5))));
     }
 
     render() {
@@ -15,7 +19,6 @@ class Add extends React.Component {
             e.preventDefault();
             this.state.value.trim() && this.props.dispatch(addNewItem(this.state.value));
             this.setState({value: ''});
-            console.log(store.getState());
           }}>
             Add item
             <br /><br />
@@ -24,7 +27,12 @@ class Add extends React.Component {
               }}
             />
             <br /><br />
-            <button>Add Item</button>
+            <button>Add Item</button><br /><br />
+            <div style={{ cursor: 'pointer', textDecoration: 'underline', fontSize: '14px' }} onClick={()=> {
+                this.createRandomItems(25);
+              }}>
+              Create 25 random items
+            </div>
             <hr />
         </form>
       )
