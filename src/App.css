@@ -33,12 +33,12 @@ button {
 .item {
   text-align: center;
   margin-right: 8px;
-  height: 90px;
+  height: 100px;
   display: inline-block;
   border: 1px solid black;
   margin-bottom: 10px;
   padding: 5px;
-  flex: 0 0 230px;
+  flex: 0 0 23%;
 }
 
 .item-edit {
@@ -67,8 +67,8 @@ button {
   display: none;
 }
 
-.item-title {
-  margin-left: 35px;
+.item-plot {
+  text-align: center;
 }
 
 .items-list .active {

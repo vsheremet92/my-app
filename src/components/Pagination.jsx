@@ -23,12 +23,8 @@ class Pagination extends React.Component {
 }
 
 const mapStateToProps = (state)=> {
-  let arr = [];
-  for (let i=0; i<Math.ceil(state.items.length/20); i++) {
-    arr.push(i)
-  }
   return {
-    pages: arr
+    pages: [0,1,2,3,4]
   }
 }
 

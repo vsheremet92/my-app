@@ -1,25 +1,26 @@
 import { List } from '../components/List'
 import { connect } from 'react-redux'
 import { toggleItem, updateItem, deleteItem } from '../actions/index'
+const ITEMS_PER_PAGE = 20;
 
 const getItems = (items, fltr, fltrByTitle, page)=> {
-  console.log(page);
   switch(fltr) {
     case 'SHOW_ALL':
       if(fltrByTitle) {
-        return items.filter(i=> i.title.includes(fltrByTitle) && i._id + 1 >= page && i._id <= page*20)
-      } else return items.filter(i=> i._id + 1 >= page && i._id <= page*20)
+        return items.filter((item, idx, arr)=>
+        item.title.includes(fltrByTitle) && idx + 1 >= (page*ITEMS_PER_PAGE)-19 && idx + 1 < page*ITEMS_PER_PAGE)
+      } else return items.filter((item, idx, arr)=> idx + 1 >= (page * ITEMS_PER_PAGE)-19 && idx + 1 <= page*ITEMS_PER_PAGE)
     case 'SHOW_ACTIVE':
-      return items.filter((i)=> {
+      return items.filter((item, idx, arr)=> {
         if(fltrByTitle) {
-          return i.active && i.title.includes(fltrByTitle) && i._id + 1 >= page && i._id <= page*20
-        } else return i.active && i._id + 1 >= page && i._id <= page*20
+          return item.active && item.title.includes(fltrByTitle) && idx + 1 >= page && idx + 1 < page*ITEMS_PER_PAGE
+        } else return item.active && idx + 1 >= (page*ITEMS_PER_PAGE)-19 && idx + 1 < page*ITEMS_PER_PAGE
       });
     case 'SHOW_INACTIVE':
-      return items.filter((i)=> {
+      return items.filter((item, idx, arr)=> {
         if(fltrByTitle) {
-          return !i.active && i.title.includes(fltrByTitle) && i._id + 1 >= page && i._id <= page*20
-        } else return !i.active && i._id + 1 >= page && i._id <= page*20
+          return !item.active && item.title.includes(fltrByTitle) && idx + 1 >= (page*ITEMS_PER_PAGE)-19 && idx + 1< page*ITEMS_PER_PAGE
+        } else return !item.active && idx + 1 >= (page*ITEMS_PER_PAGE)-19 && idx + 1 < page*ITEMS_PER_PAGE
       });
     default:
       return items;
@@ -33,9 +34,9 @@ const mapStateToProps = (state)=> {
 }
 
 const mapDispatchToProps = {
-    toggleItem: toggleItem,
-    onItemUpdate: updateItem,
-    deleteItem: deleteItem
+  toggleItem: toggleItem,
+  onItemUpdate: updateItem,
+  deleteItem: deleteItem
 }
 
 const ItemsList = connect(

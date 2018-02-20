@@ -33,9 +33,14 @@ export class Item extends React.Component {
           }}>
             ✕
           </button>
+          <button className={classnames('item-edit', {'item-btn-hide': editing})} onClick={()=> toggleItem(id)}>⟳</button>
           {
             !editing ?
-            <span className="item-title">{title}</span> :
+            <div className="item-plot">
+              <br />
+              <p>Title: {title}</p>
+              <p>ID: {id}</p>
+            </div> :
             <input onKeyUp={(ev)=> {
                 if(ev.keyCode === 13) {
                   this.updateItem(ev);
@@ -43,7 +48,6 @@ export class Item extends React.Component {
                 }
               }} className="item-editing" autoFocus type="text" defaultValue={title} />
           }
-          <button className={classnames('item-edit', {'item-btn-hide': editing})} onClick={()=> toggleItem(id)}>⟳</button>
       </li>
     )
 
